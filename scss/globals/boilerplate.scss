@@ -1,3 +1,5 @@
+@use '../util' as *;
+
 html {
 	font-size: 100%;
 	box-sizing: border-box;
@@ -12,4 +14,86 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+	font-family: var(--kumbh);
 }
+
+
+.flex {
+	display: flex;
+  
+	&-c {
+	  flex-direction: column;
+	}
+  
+	&-jc-sb {
+	  justify-content: space-between;
+	}
+  
+	&-jc-c {
+	  justify-content: center;
+	}
+  
+	&-jc-s {
+	  justify-content: start;
+	}
+  
+	&-ai-c {
+	  align-items: center;
+	}
+  
+	&-ai-s {
+	  align-items: flex-start;
+	}
+  }
+  
+  // visibility
+  .hide-for-mobile {
+	@include breakpoints-down(small) {
+	  display: None;
+	}
+  }
+  
+  .hide-for-tablet{
+	@include breakpoints-down(medium){
+	  display: none;
+	}
+  }
+  
+  .hide-for-desktop {
+	@include breakpoints-up(large) {
+	  display: None;
+	}
+  }
+
+
+// padding
+.pad {
+	// small left - 8px
+	&-l {
+	  padding-left: rem(23);
+	  @include breakpoints-up(large) {
+		padding-left: rem(164);
+	  }
+	}
+  
+	&-r {
+	  padding-right: rem(23);
+	  @include breakpoints-up(large) {
+		padding-right: rem(164);
+	  }
+	}
+  
+	&-lr {
+	  padding-left: rem(23);
+	  padding-right: rem(23);
+  
+	  @include breakpoints-up(large) {
+		padding-left: rem(162);
+		padding-right: rem(162);
+	  }
+	}
+  }
+
+  .img{
+	  position: relative;
+  }

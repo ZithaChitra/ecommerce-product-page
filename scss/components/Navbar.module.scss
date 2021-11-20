@@ -1,0 +1,86 @@
+@use '../util' as *;
+
+
+.nav{
+    width: 100%;
+    height: rem(68);
+    border-bottom: 1px solid var(--dark-grayish-blue);
+    @include breakpoints-up(large){
+    }
+    
+
+    &__toggle{
+        height: rem(16);
+        width: rem(16);
+        margin-right: rem(16);
+        cursor: pointer;
+    }
+
+
+    &__logo{
+        display: inline-block;
+        cursor: pointer;
+        height: rem(20);
+        width: rem(138);
+
+        @include breakpoints-up(large){
+            margin-right: rem(57);
+        }
+    }
+
+    &__links{
+
+        &-primary{
+           
+            a{
+                color: var(--very-dark-blue);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                height: 100%;           
+
+                &:not(:last-child){
+                    margin-right: rem(34);
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    display: none;
+                    bottom: 0;
+                    left: 0;
+                    height: rem(4);
+                    width: 100%;
+                    background: var(--orange);
+                }
+
+                &:hover{
+                    &::before{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+
+    &__cart{
+        display: inline-block;
+        width: rem(24);
+        height: rem(24);
+        margin-right: rem(20);
+        cursor: pointer;
+    }
+
+
+    &__avatar{
+        display: inline-block;
+        width: rem(24);
+        height: rem(24);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+}

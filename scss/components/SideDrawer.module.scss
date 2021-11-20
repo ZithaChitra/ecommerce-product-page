@@ -1,0 +1,34 @@
+@use '../util' as *;
+
+.drawer{
+    &.open{
+        left: 0;
+    }
+    transition: all 300ms ease-in-out;
+    background: white;
+    height: 100vh;
+    width: rem(250);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 5;
+    padding-top: rem(24);
+
+    &__toggle{
+        margin-bottom: rem(60);
+        width: rem(13);
+        height: rem(13);
+        cursor: pointer;
+    }
+
+    &__links{
+        
+        a{
+            color: var(--very-dark-blue);
+            font-weight: 700;
+            &:not(:last-child){
+                margin-bottom: rem(32);
+            }
+        }
+    }
+}
