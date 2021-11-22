@@ -6,6 +6,7 @@
     height: rem(68);
     border-bottom: 1px solid var(--dark-grayish-blue);
     @include breakpoints-up(large){
+        margin-bottom: rem(90);
     }
     
 

@@ -4,9 +4,9 @@
 .product{
 
     @include breakpoints-up(large){
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: rem(126);
+        display: flex;
+        justify-content: center;
+        
     }
 
     &__image{
@@ -21,22 +21,35 @@
             display: grid;
             grid-template-columns: repeat(4, rem(91.5));
             grid-template-rows: rem(90);
-            grid-gap: 1fr;
+            grid-gap: rem(26.5);
+            width: 100%;
+            margin-bottom: rem(130);
         }
 
         &-thumbnail{ // singular
             position: relative;
-            border-radius: 3px;
+            border-radius: 5px;
+            overflow: hidden;
         }
         
         @include breakpoints-up(large){
             width: rem(446);
             height: rem(446);
+            margin-bottom: rem(32);
+            margin-right: rem(128);
             border-radius: rem(11);
+            overflow: hidden;
         }
     }
 
     &__info{
+        margin: 0;
+        padding: 0;
+        max-width: rem(445);
+
+        @include breakpoints-up(large){
+            padding-top: rem(62);
+        }
 
         h4{
             font-size: rem(11);
@@ -53,19 +66,33 @@
             margin-bottom: rem(28);
             color: var(--very-dark-blue);
             font-weight: 700;
+
+            @include breakpoints-up(large){
+                font-size: rem(34);
+                line-height: rem(48);
+                margin-bottom: rem(50);
+            }
         }
 
         p{
             font-size: rem(14);
             line-height: rem(24);
             margin: 0;
-            margin-bottom: rem(36);
+            margin-bottom: rem(33);
             color: var(--dark-grayish-blue);
+
+            @include breakpoints-up(large){
+                line-height: rem(28);
+            }
         }
 
 
         &__pricing{
             margin-bottom: rem(27);
+
+            @include breakpoints-up(large){
+                margin-bottom: rem(40);
+            }
 
             &-price{
                 font-size: rem(21);
@@ -90,6 +117,15 @@
         }
 
 
+        &__ctr__cta{
+            display: flex;
+            flex-direction: column;
+
+            @include breakpoints-up(large){
+                flex-direction: row;
+            }
+        }
+
         &__controls{
             width: rem(327);
             height: rem(56);
@@ -98,6 +134,15 @@
             margin: auto;
             margin-bottom: rem(18);
             border-radius: rem(8);
+            padding-left: rem(17);
+            padding-right: rem(17);
+
+            @include breakpoints-up(large){
+                margin: 0;
+                margin-right: rem(18);
+                width: rem(155);
+
+            }
 
             &-subtract{
                 span{
@@ -161,9 +206,6 @@
                     fill: white;
                 }
             }
-    
         }
     }
-
-
 }

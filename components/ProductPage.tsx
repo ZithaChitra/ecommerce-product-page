@@ -14,27 +14,30 @@ import thumb4 from '../public/images/image-product-4-thumbnail.jpg'
 const ProductPage: React.FC = () => {
     return (
         <div className={`${styles.product}`}>
-            <div className={`${styles.product__image}`}>
-                <Image src={prod_image} alt='' layout='fill'/>
+            <div>
+                <div className={`${styles.product__image}`}>
+                    <Image src={prod_image} alt='' layout='fill'/>
+                </div>
 
-                {/* <div className={`${styles['product__image-thumbnails']} hide-for-tablet`}>
-    
-                    <div className={`${styles['product__image-thumbnail']}`} > 
-                        <Image src={thumb1} alt='' layout='fill'/>
-                    </div>
+                <div className='hide-for-tablet'>
+                    <div className={`${styles['product__image-thumbnails']}`}>
+                        <div className={`${styles['product__image-thumbnail']}`} > 
+                            <Image src={thumb1} alt='' layout='fill'/>
+                        </div>
 
-                    <div className={`${styles['product__image-thumbnail']}`} > 
-                        <Image src={thumb2} alt='' layout='fill'/>
-                    </div>
+                        <div className={`${styles['product__image-thumbnail']}`} > 
+                            <Image src={thumb2} alt='' layout='fill'/>
+                        </div>
 
-                    <div className={`${styles['product__image-thumbnail']}`} > 
-                        <Image src={thumb3} alt='' layout='fill'/>
-                    </div>
+                        <div className={`${styles['product__image-thumbnail']}`} > 
+                            <Image src={thumb3} alt='' layout='fill'/>
+                        </div>
 
-                    <div className={`${styles['product__image-thumbnail']}`} > 
-                        <Image src={thumb4} alt='' layout='fill'/>
+                        <div className={`${styles['product__image-thumbnail']}`} > 
+                            <Image src={thumb4} alt='' layout='fill'/>
+                        </div>
                     </div>
-                </div> */}
+                </div>
             </div>
 
             <div className={`${styles.product__info} pad-lr`}>
@@ -54,31 +57,32 @@ const ProductPage: React.FC = () => {
                         <span className={`${styles['product__info__pricing-original']}`}>$250.00</span>
                     </div>
                 </div>
+                <div className={`${styles['product__info__ctr__cta']}`}>
+                    <div className={`${styles.product__info__controls} flex flex-ai-c flex-jc-sb`}>
+                        <div className={`${styles['product__info__controls-subtract']} flex flex-ai-c`}>
+                            <span></span>
+                        </div>
 
-                <div className={`${styles.product__info__controls} flex flex-ai-c flex-jc-sb pad-lr`}>
-                    <div className={`${styles['product__info__controls-subtract']} flex flex-ai-c`}>
-                        <span></span>
+                        <div className={`${styles['product__info__controls-total']} flex flex-ai-c`}>
+                            <span>3</span>
+                        </div>
+
+                        <div className={`${styles['product__info__controls-add']} flex flex-ai-c`}>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
 
-                    <div className={`${styles['product__info__controls-total']} flex flex-ai-c`}>
-                        <span>3</span>
+                    <div className={`${styles.product__cta} flex flex-ai-c flex-jc-c`}>
+                        <Link href=''>
+                            <a className='flex flex-ai-c flex-jc-c'>
+                                <div className={`${styles.image}`}>
+                                    <Image src={cart} alt='' layout='fill'/>
+                                </div>
+                                Add to cart
+                            </a>
+                        </Link>
                     </div>
-
-                    <div className={`${styles['product__info__controls-add']} flex flex-ai-c`}>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-
-                <div className={`${styles.product__cta} flex flex-ai-c flex-jc-c`}>
-                    <Link href=''>
-                        <a className='flex flex-ai-c flex-jc-c'>
-                            <div className={`${styles.image}`}>
-                                <Image src={cart} alt='' layout='fill'/>
-                            </div>
-                            Add to cart
-                        </a>
-                    </Link>
                 </div>
             </div>
         </div>
