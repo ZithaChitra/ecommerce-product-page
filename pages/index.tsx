@@ -3,6 +3,7 @@ import Head from "next/head";
 import Backdrop from "../components/Backdrop";
 import Navbar from "../components/Navbar";
 import SideDrawer from "../components/SideDrawer";
+import ProductPage from '../components/ProductPage'
 import { useState } from "react";
 
 // const Home: NextPage = () => {
@@ -80,6 +81,7 @@ export class Index extends Component<Props, State> {
         <Navbar clickHandler={this.toggleMenu} />
         <SideDrawer clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
         <Backdrop clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
+        <ProductPage />
       </div>
     );
   }
