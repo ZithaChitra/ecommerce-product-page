@@ -2,6 +2,7 @@
 
 
 .product{
+    overflow: hidden;
 
     @include breakpoints-up(large){
         display: flex;
@@ -9,46 +10,14 @@
         
     }
 
-    &__image{
-        position: relative;
-        cursor: pointer;
-        width: 100vw;
-        height: rem(300);
-        margin-bottom: rem(24);
-        object-fit: cover;
-
-        &-thumbnails{ // plural
-            display: grid;
-            grid-template-columns: repeat(4, rem(91.5));
-            grid-template-rows: rem(90);
-            grid-gap: rem(26.5);
-            width: 100%;
-            margin-bottom: rem(130);
-        }
-
-        &-thumbnail{ // singular
-            position: relative;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        @include breakpoints-up(large){
-            width: rem(446);
-            height: rem(446);
-            margin-bottom: rem(32);
-            margin-right: rem(128);
-            border-radius: rem(11);
-            overflow: hidden;
-        }
-    }
-
+   
     &__info{
         margin: 0;
         padding: 0;
         max-width: rem(445);
 
         @include breakpoints-up(large){
-            padding-top: rem(62);
+            // padding-top: rem(62);
         }
 
         h4{
@@ -145,10 +114,15 @@
             }
 
             &-subtract{
+                &:hover{
+                    opacity: 0.4;
+                }
                 span{
                     width: rem(12);
                     height:rem(4);
                     background: var(--orange);
+                    cursor: pointer;
+
                 }
             }
 
@@ -161,11 +135,15 @@
 
             &-add{
                 position: relative;
+                &:hover{
+                    opacity: 0.4;
+                }
 
                 span{
                     width: rem(12);
                     height: rem(4);
                     background: var(--orange);
+                    cursor: pointer;
 
                     &:last-child{
                         position: absolute;
@@ -174,6 +152,7 @@
                         transform-origin: center;
                         transform: rotate(90deg);
                     }
+
                 }
             }
 
@@ -187,7 +166,12 @@
         margin: auto;
         margin-bottom: rem(18);
         border-radius: rem(8);
+        box-shadow: 0 rem(10) rem(10) rem(4) var(--Pale-orange);
         
+        &:hover{
+            opacity: 0.5;
+        }
+
         a{
             width: 100%;
             height: 100%;
@@ -206,6 +190,8 @@
                     fill: white;
                 }
             }
+
+
         }
     }
 }

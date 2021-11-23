@@ -14,7 +14,7 @@ interface Props{
 
 const Navbar: React.FC<Props> = ({clickHandler}) => {
   return (
-    <div className={`${styles.nav} flex flex-ai-c flex-jc-sb pad-lr`}>
+    <div className={`${styles.nav} flex flex-ai-c flex-jc-sb pad-lr container`}>
       <div className='flex flex-ai-c'>
         <div className={`${styles.nav__toggle} img hide-for-desktop`}>
             <Image onClick={()=> clickHandler()} src={openToggle} alt='mobile nav toggle' layout="fill" />

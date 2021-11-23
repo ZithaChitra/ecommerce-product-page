@@ -8,7 +8,7 @@ interface Props{
 
 const Backdrop: React.FC<Props> = ({clickHandler, isOpen}) => {
     return (
-        <div className={`${styles.backdrop} ${isOpen ? styles.open : ''} hide-for-desktop`} 
+        <div className={`${styles.backdrop} ${isOpen ? styles.open : ''}`} 
         onClick={()=>clickHandler()}/>
     )
 }

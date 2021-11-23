@@ -2,42 +2,17 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import ProdViewer from './ProdViewer'
+
 import styles from '../styles/components/ProductPage.module.css'
 import cart from '../public/images/icon-cart.svg'
-import prod_image from '../public/images/image-product-1.jpg'
-import thumb1 from '../public/images/image-product-1-thumbnail.jpg'
-import thumb2 from '../public/images/image-product-2-thumbnail.jpg'
-import thumb3 from '../public/images/image-product-3-thumbnail.jpg'
-import thumb4 from '../public/images/image-product-4-thumbnail.jpg'
 
 
 const ProductPage: React.FC = () => {
     return (
         <div className={`${styles.product}`}>
             <div>
-                <div className={`${styles.product__image}`}>
-                    <Image src={prod_image} alt='' layout='fill'/>
-                </div>
-
-                <div className='hide-for-tablet'>
-                    <div className={`${styles['product__image-thumbnails']}`}>
-                        <div className={`${styles['product__image-thumbnail']}`} > 
-                            <Image src={thumb1} alt='' layout='fill'/>
-                        </div>
-
-                        <div className={`${styles['product__image-thumbnail']}`} > 
-                            <Image src={thumb2} alt='' layout='fill'/>
-                        </div>
-
-                        <div className={`${styles['product__image-thumbnail']}`} > 
-                            <Image src={thumb3} alt='' layout='fill'/>
-                        </div>
-
-                        <div className={`${styles['product__image-thumbnail']}`} > 
-                            <Image src={thumb4} alt='' layout='fill'/>
-                        </div>
-                    </div>
-                </div>
+                <ProdViewer />
             </div>
 
             <div className={`${styles.product__info} pad-lr`}>

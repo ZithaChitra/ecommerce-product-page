@@ -55,6 +55,7 @@ import { useState } from "react";
 // export default Home
 
 import React, { Component } from "react";
+import ProdFocus from "../components/ProdFocus";
 
 interface State{
   isSideDrawer: boolean
@@ -79,9 +80,12 @@ export class Index extends Component<Props, State> {
     return (
       <div>
         <Navbar clickHandler={this.toggleMenu} />
-        <SideDrawer clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
-        <Backdrop clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
+        <div className='hide-for-desktop'>
+          <SideDrawer clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
+          <Backdrop clickHandler={this.toggleMenu} isOpen={this.state.isSideDrawer} />
+        </div>
         <ProductPage />
+        <ProdFocus />
       </div>
     );
   }
