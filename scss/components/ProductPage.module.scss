@@ -13,11 +13,12 @@
    
     &__info{
         margin: 0;
-        padding: 0;
+        // padding: 0;
         max-width: rem(445);
 
         @include breakpoints-up(large){
             // padding-top: rem(62);
+            padding: 0;
         }
 
         h4{

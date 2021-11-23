@@ -2,6 +2,7 @@
 
 
 .nav{
+    // position: relative;
     overflow: hidden;
     width: 100%;
     height: rem(68);
@@ -78,6 +79,41 @@
         height: rem(24);
         margin-right: rem(20);
         cursor: pointer;
+
+        &__info{
+            position: absolute;
+            top: rem(76);
+            right: rem(2);
+            width: rem(360);
+            height: rem(256);
+            border-radius: rem(10);
+            background: green;
+            z-index: 1000;
+
+            h3{
+                height: rem(68);
+                border-bottom: rem(0.3) solid var(--dark-grayish-blue);
+                color: var(--very-dark-blue);
+                font-size: rem(14);
+                padding: rem(27) rem(24);
+            }
+        }
+
+        &__prod{
+
+            &-img{
+                width: rem(50);
+                height: rem(50);
+                border-radius: rem(5);
+                margin-right: rem(16);
+            }
+
+            &-del{
+                width: rem(14);
+                height: rem(16);
+            }
+        }
+
     }
 
 

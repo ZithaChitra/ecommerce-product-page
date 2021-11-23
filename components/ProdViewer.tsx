@@ -1,62 +1,101 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
+import { useState } from "react";
 
-import styles from '../styles/components/ProdViewer.module.css'
+import styles from "../styles/components/ProdViewer.module.css";
 
-import products from '../data.json'
+import products from "../data.json";
 
 
-interface Images{
-    primary: string[];
-    thumbnails: string[]
+interface Images {
+  primary: string[];
+  thumbnails: string[];
 }
 
-interface Props{
-    next?: () => void;
-    prev?: () => void;
-    open?: boolean 
+interface Props {
+  prodFocusHandler: () => void;
+  prodImages: Images;
+  open?: boolean;
 }
 
-const prodImages: Images = products.shoe.images
+// const prodImages: Images = products.shoe.images
 
-const ProdViewer:React.FC<Props> = ({next, prev, open}) => {
+const ProdViewer: React.FC<Props> = ({
+  open,
+  prodFocusHandler,
+  prodImages,
+}) => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const next1 = () => {
+    setCurrentImage((current) => {
+      const nextImage = current + 1;
+      if (nextImage < prodImages.primary.length) {
+        return nextImage;
+      } else {
+        return 0;
+      }
+    });
+  };
 
-    const clickHandler = () => {
-        // TODO
-    }
+  const prev1 = () => {
+    setCurrentImage((current) => {
+      const prevImage = current - 1;
+      if (prevImage < 0) {
+        return prodImages.primary.length - 1;
+      } else {
+        return prevImage;
+      }
+    });
+  };
 
-    return (
-        <div className={`${styles.prod} ${open === true ? styles.open : '' }`}>
-            <div className={`${styles.prod__image}`}>
-                <Image src={prodImages.primary[0]} alt='' layout='fill'/>
+  return (
+    <div className={`${styles.prod} ${open === true ? styles.open : ""}`}>
+      <div className={`${styles.prod__image}`}>
+        <Image src={prodImages.primary[currentImage]} alt="" layout="fill" />
 
-                <div className={`${styles.prod__controls}`}>
-                    <div className={`${styles['prod__controls-left']} ${open === true ? styles.open : '' } flex flex-ai-c flex-jc-c`}>
-                        <span></span>
-                        <span></span>
-                    </div>
+        <div className={`${styles.prod__controls}`}>
+          <div
+            className={`${styles["prod__controls-left"]} ${
+              open === true ? styles.open : ""
+            }
+                     flex flex-ai-c flex-jc-c`}
+            onClick={prev1}
+          >
+            <span></span>
+            <span></span>
+          </div>
 
-                    <div className={`${styles['prod__controls-right']} ${open === true ? styles.open : '' } flex flex-ai-c flex-jc-c`}>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className=''>
-                    <div className={`${styles['prod__image-thumbnails']}`}>
-                        {prodImages.thumbnails.map((thumbnail, index) =>{
-                            return (
-                                <div className={`${styles['prod__image-thumbnail']}`} key={index}> 
-                                    <Image src={thumbnail} alt='' layout='fill' onClick={clickHandler}/>
-                                </div>
-                            )
-                        })}
-                    </div>
-            </div>
+          <div
+            className={`${styles["prod__controls-right"]} ${
+              open === true ? styles.open : ""
+            } 
+                        flex flex-ai-c flex-jc-c`}
+            onClick={next1}
+          >
+            <span></span>
+            <span></span>
+          </div>
         </div>
-    )
-}
+      </div>
 
-export default ProdViewer
+      <div className="">
+        <div className={`${styles["prod__image-thumbnails"]}`}>
+          {prodImages.thumbnails.map((thumbnail, index) => {
+            return (
+              <div className={`${styles["prod__image-thumbnail"]}`} key={index}>
+                <Image
+                  src={thumbnail}
+                  alt=""
+                  layout="fill"
+                  onClick={prodFocusHandler}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProdViewer;

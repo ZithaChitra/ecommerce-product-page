@@ -109,7 +109,14 @@
             background: white;
             z-index: 1;
 
+            &.open{
+                @include breakpoints-up(large){
+                    display: flex;
+                }
+            }
+
             @include breakpoints-up(large){
+                display: none;
                 right: - rem(21);
             }
 
