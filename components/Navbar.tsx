@@ -10,6 +10,7 @@ import avatar from '../public/images/image-avatar.png'
 
 import thumbnail from '../public/images/image-product-1-thumbnail.jpg'
 import del from '../public/images/icon-delete.svg'
+import CartInfo from "./CartInfo";
 
 interface Props{
   clickHandler: () => void
@@ -38,32 +39,13 @@ const Navbar: React.FC<Props> = ({clickHandler}) => {
         </div>
       </div>
 
-      <div>
-          <div className={`${styles.nav__cart} img`}>
-            <Image src={cart} alt="logo" layout="fill" />
+      <div className='flex flex-ai-c'>
 
-            <div className={`${styles.nav__cart__info}`}>
-              <h3>Cart</h3>
-              <div className='flex flex-ai-c'>
-                <div className={`${styles['nav__cart__prod']} pad-lr`}>
-                  <div className={`${styles['nav__cart__prod-image']} img`}>
-                    <Image src={thumbnail} layout='fill' />
-                  </div>
-                  <div className='flex flex-c'>
-                    <p>
-                      product descritop goes here
-                    </p>
-                    <div>
-                      quantity details here
-                    </div>
-                  </div>
-                </div>
-                <div className={`${styles['nav__cart__prod-del']} img`}>
-                  <Image src={del} layout='fill'/>
-                </div>
-              </div>
-
+          <div>
+            <div className={`${styles.nav__cart} img`}>
+              <Image src={cart} alt="logo" layout="fill" />
             </div>
+            <CartInfo />
           </div>
 
           <div className={`${styles.nav__avatar} img`}>

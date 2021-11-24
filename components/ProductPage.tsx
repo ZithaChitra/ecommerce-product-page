@@ -77,8 +77,8 @@ const ProductPage: React.FC<Props> = ({ prodFocusHandler, prodImages }) => {
 
           <div className={`${styles.product__cta} flex flex-ai-c flex-jc-c`}>
             <Link href="">
-              <a className="flex flex-ai-c flex-jc-c">
-                <div className={`${styles.image}`}>
+              <a className="cta">
+                <div className={`${styles.image} img`}>
                   <Image src={cart} alt="" layout="fill" />
                 </div>
                 Add to cart

@@ -4,8 +4,6 @@ import { useState } from "react";
 
 import styles from "../styles/components/ProdViewer.module.css";
 
-import products from "../data.json";
-
 
 interface Images {
   primary: string[];

@@ -92,8 +92,27 @@ body {
 		padding-right: rem(162);
 	  }
 	}
-  }
+}
 
-  .img{
-	  position: relative;
-  }
+.img{
+	position: relative;
+}
+
+
+.cta{
+	background: var(--orange);
+    height: rem(56);
+    width: rem(320);
+    margin: auto;
+    border: hidden;
+    border-radius: rem(8);
+    color: white;
+	box-shadow: 0 rem(10) rem(10) rem(4) var(--Pale-orange);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover{
+		opacity: 0.5;
+	}
+}
