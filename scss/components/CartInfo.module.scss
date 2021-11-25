@@ -5,6 +5,12 @@
     &__cart{
 
         &__info{
+
+            &.open{
+                display: block;
+            }
+            
+            display: none;
             position: absolute;
             top: rem(76);
             right: rem(8);
@@ -14,12 +20,6 @@
             border-radius: rem(10);
             background: white;
             z-index: 8;
-
-            // >div{
-            //     &:first-child{
-            //         margin-bottom: rem(26);
-            //     }
-            // }
 
             h3{
                 height: rem(68);
@@ -53,14 +53,24 @@
                 &:first-child{
                     margin-bottom: rem(10);
                 }
+
+                &:last-child{
+                    span{
+                        display: inline-block;
+                        margin-left: rem(10);
+                        color: var(--very-dark-blue);
+                        font-weight: 700;
+                    }
+                }
             }
 
             &-del{
                 width: rem(14);
                 height: rem(16);
+                cursor: pointer;
             }
         }
-
     }
 
 }
+

@@ -2,34 +2,64 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/components/CartInfo.module.css'
 
-import thumbnail from '../public/images/image-product-1-thumbnail.jpg'
 import del from '../public/images/icon-delete.svg'
 
-const CartInfo = () => {
-    return (
-            <div className={`${styles.nav__cart__info}`}>
-              <h3>Cart</h3>
-              <div className='flex flex-ai-c flex-jc-sb'>
-                <div className={`${styles['nav__cart__prod']} flex flex-ai-c`}>
-                  <div className={`${styles['nav__cart__prod-img']} img`}>
-                    <Image src={thumbnail} layout='fill' />
-                  </div>
-                  <div className='flex flex-c'>
-                    <p>
-                      product descritop goes here
-                    </p>
-                    <p>
-                      quantity details here
-                    </p>
-                  </div>
-                </div>
-                <div className={`${styles['nav__cart__prod-del']} img`}>
-                  <Image src={del} layout='fill'/>
-                </div>
-              </div>
+interface ProductInfo{
+  id: number;
+  thumbnail: string;
+  title: string;
+  price: number;
+  quantity: number;
+  total: number;
+}
 
+interface Props{
+  isCartInfo: boolean;
+  products: ProductInfo[],
+  prodDel: (id: number) => void
+}
+
+const CartInfo:React.FC<Props> = ({products, prodDel, isCartInfo}) => {
+    return (
+            <div className={`${styles.nav__cart__info} ${isCartInfo === true ? styles.open : ''}`}>
+              <h3>Cart</h3>
+              {/* {if(products){
+                return(
+
+                )
+              }else{
+            
+              }
+              } */}
               <div>
-                <button className='cta'>Checkout</button>
+                  {products.map(product=>{
+                    return (
+                      <div className='flex flex-ai-c flex-jc-sb'>
+                          <div className={`${styles['nav__cart__prod']} flex flex-ai-c`}>
+                            <div className={`${styles['nav__cart__prod-img']} img`}>
+                              <Image src={product.thumbnail} layout='fill' />
+                            </div>
+                            <div className='flex flex-c'>
+                              <p>
+                                {product.title}
+                              </p>
+                              <p>
+                                {`$${product.price} x ${product.quantity}`} <span>{`$${product.total}`}</span>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className={`${styles['nav__cart__prod-del']} img`} onClick={()=>prodDel(product.id)}>
+                            <Image src={del} layout='fill'/>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+
+                <div>
+                  <button className='cta'>Checkout</button>
+                </div>
               </div>
             </div>
     )

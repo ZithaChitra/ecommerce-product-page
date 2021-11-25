@@ -1,0 +1,31 @@
+@use '../util' as *;
+
+.nav{
+    &__cart{
+
+        display: inline-block;
+        width: rem(24);
+        height: rem(24);
+        margin-right: rem(20);
+        cursor: pointer;
+
+        span{
+
+            &.open{
+                display: flex;
+            }
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: rem(19);
+            height: rem(14);
+            border-radius: rem(7);
+            background: var(--orange);
+            color: white;
+            font-size: rem(8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

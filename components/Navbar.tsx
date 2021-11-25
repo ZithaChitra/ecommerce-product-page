@@ -5,18 +5,26 @@ import Link from "next/link";
 import styles from "../styles/components/Navbar.module.css";
 import logo from "../public/images/logo.svg";
 import openToggle from '../public/images/icon-menu.svg'
-import cart from '../public/images/icon-cart.svg'
 import avatar from '../public/images/image-avatar.png'
 
-import thumbnail from '../public/images/image-product-1-thumbnail.jpg'
-import del from '../public/images/icon-delete.svg'
-import CartInfo from "./CartInfo";
+import Cart from "./Cart";
 
 interface Props{
-  clickHandler: () => void
+  clickHandler: () => void;
+  isCartInfo: boolean;
+  prodDel: (id: number) => void,
+  toggleCartInfo: () => void
+  cart: {
+    id: number;
+    title: string;
+    quantity: number;
+    price: number;
+    total: number;
+    thumbnail: string
+}[]
 }
 
-const Navbar: React.FC<Props> = ({clickHandler}) => {
+const Navbar: React.FC<Props> = ({clickHandler, cart, isCartInfo, prodDel, toggleCartInfo}) => {
   return (
     <div className={`${styles.nav} flex flex-ai-c flex-jc-sb pad-lr container`}>
       <div className='flex flex-ai-c'>
@@ -42,10 +50,7 @@ const Navbar: React.FC<Props> = ({clickHandler}) => {
       <div className='flex flex-ai-c'>
 
           <div>
-            <div className={`${styles.nav__cart} img`}>
-              <Image src={cart} alt="logo" layout="fill" />
-            </div>
-            <CartInfo />
+            <Cart cart={cart} isCartInfo={isCartInfo} prodDel={prodDel} toggleCartInfo={toggleCartInfo}/>
           </div>
 
           <div className={`${styles.nav__avatar} img`}>
